@@ -12,7 +12,6 @@
 ------------------
 ---- MONITORS ----
 ------------------
-
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
 	output = "HDMI-A-1",
@@ -26,10 +25,10 @@ hl.monitor({
 	position = "-1920x0",
 	scale = 1,
 })
+
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
-
 -- Set programs that you use
 local terminal = "kitty"
 local fileManager = "dolphin"
@@ -39,12 +38,9 @@ local menu = "wofi --show drun"
 -------------------
 ---- AUTOSTART ----
 -------------------
-
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
-
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
-
 hl.on("hyprland.start", function()
 	-- hl.exec_cmd(terminal)
 	-- hl.exec_cmd("nm-applet")
@@ -56,9 +52,7 @@ end)
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
-
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-
 hl.env("XCURSOR_SIZE", "24")
 -- hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
@@ -66,7 +60,6 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 -----------------------
 ----- PERMISSIONS -----
 -----------------------
-
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
 -- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
 -- for security reasons
@@ -84,44 +77,34 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
-
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
 		gaps_in = 5,
 		gaps_out = 20,
-
 		border_size = 2,
-
 		col = {
 			active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
 			inactive_border = "rgba(595959aa)",
 		},
-
 		-- Set to true to enable resizing windows by clicking and dragging on borders and gaps
 		resize_on_border = false,
-
 		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
 		allow_tearing = false,
-
 		layout = "dwindle",
 	},
-
 	decoration = {
 		rounding = 10,
 		rounding_power = 2,
-
 		-- Change transparency of focused and unfocused windows
 		active_opacity = 1.0,
 		inactive_opacity = 1.0,
-
 		shadow = {
 			enabled = true,
 			range = 4,
 			render_power = 3,
 			color = 0xee1a1a1a,
 		},
-
 		blur = {
 			enabled = true,
 			size = 3,
@@ -129,10 +112,10 @@ hl.config({
 			vibrancy = 0.1696,
 		},
 	},
-
 	animations = {
 		enabled = true,
 	},
+	cursor = { inactive_timeout = 5.0 },
 })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -205,7 +188,6 @@ hl.config({
 ----------------
 ----  MISC  ----
 ----------------
-
 hl.config({
 	misc = {
 		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
@@ -216,7 +198,6 @@ hl.config({
 ---------------
 ---- INPUT ----
 ---------------
-
 hl.config({
 	input = {
 		kb_layout = "us,gb",
@@ -224,11 +205,8 @@ hl.config({
 		kb_model = "",
 		kb_options = "grp:win_space_toggle",
 		kb_rules = "",
-
 		follow_mouse = 1,
-
 		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
-
 		touchpad = {
 			natural_scroll = false,
 		},
@@ -355,7 +333,6 @@ local suppressMaximizeRule = hl.window_rule({
 	-- Ignore maximize requests from all apps. You'll probably like this.
 	name = "suppress-maximize-events",
 	match = { class = ".*" },
-
 	suppress_event = "maximize",
 })
 -- suppressMaximizeRule:set_enabled(false)
@@ -371,7 +348,6 @@ hl.window_rule({
 		fullscreen = false,
 		pin = false,
 	},
-
 	no_focus = true,
 })
 
@@ -387,7 +363,6 @@ hl.window_rule({
 hl.window_rule({
 	name = "move-hyprland-run",
 	match = { class = "hyprland-run" },
-
 	move = "20 monitor_h-120",
 	float = true,
 })
